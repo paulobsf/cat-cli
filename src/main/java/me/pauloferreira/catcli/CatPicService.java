@@ -1,11 +1,34 @@
 package me.pauloferreira.catcli;
 
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
+
+import java.io.IOException;
+
 public class CatPicService {
 
-  public static final String CAT_URL = "http://24.media.tumblr.com/tumblr_lqeuw4FkGI1qi7qudo1_500.jpg";
+  public static final String CAT_API_ENDPOINT = "http://thecatapi.com/api/images/get";
 
-  public String getCatUrl() {
-    return CAT_URL;
+  private final OkHttpClient okHttpClient;
+
+  public CatPicService() {
+    okHttpClient = new OkHttpClient();
   }
 
+  public String getCatUrl() {
+    try {
+      okHttpClient.setFollowRedirects(false);
+
+      Request request = new Request.Builder()
+          .url(CAT_API_ENDPOINT)
+          .build();
+
+      Response response = okHttpClient.newCall(request).execute();
+
+      return response.header("Location"); //  Assumes redirect
+    } catch (IOException e) {
+      throw new CatException("Could not retrieve cat url", e);
+    }
+  }
 }

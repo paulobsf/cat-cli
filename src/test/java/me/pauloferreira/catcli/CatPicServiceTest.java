@@ -10,6 +10,9 @@ public class CatPicServiceTest {
   public void testGetCatUrl() throws Exception {
     CatPicService catPicService = new CatPicService();
 
-    new URL(catPicService.getCatUrl());   //  implicitly checks for MalformedURLException (including null)
+    //  implicitly checks for MalformedURLException (including null)
+    String catUrl = catPicService.getCatUrl();
+
+    new URL(catUrl);
   }
 }
