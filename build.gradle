@@ -2,11 +2,22 @@ group 'me.pauloferreira'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
-
 sourceCompatibility = 1.8
 
+buildscript {
+  repositories { jcenter() }
+  dependencies { classpath 'eu.appsatori:gradle-fatjar-plugin:0.3' }
+}
+apply plugin: 'eu.appsatori.fatjar'
+
+fatJar {
+  manifest {
+    attributes 'Main-Class': 'me.pauloferreira.catcli.Main'
+  }
+}
+
 repositories {
-    mavenCentral()
+  mavenCentral()
 }
 
 dependencies {
