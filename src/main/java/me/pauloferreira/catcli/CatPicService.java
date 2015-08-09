@@ -29,6 +29,10 @@ public class CatPicService {
     return okHttpClient.newCall(request).execute();
   }
 
+  /**
+   * @return url for a cat picture
+   * @throws CatException if API call fails
+   */
   public String getCatUrl() {
     try {
       Response response = executeHttpCall(CAT_API_ENDPOINT, false);
@@ -55,6 +59,10 @@ public class CatPicService {
     return filePath;
   }
 
+  /**
+   * @return full path for a downloaded picture
+   * @throws CatException if API call fails or cannot save file
+   */
   public String getCatPhoto() {
     try {
       Response response = executeHttpCall(CAT_API_ENDPOINT, true);

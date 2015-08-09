@@ -8,6 +8,9 @@ public class BrowserService {
 
   private Desktop desktop;
 
+  /**
+   * @throws CatException if desktop or browse action not supported
+   */
   public BrowserService() {
     if (!java.awt.Desktop.isDesktopSupported()) {
       throw new CatException("Desktop not supported");
@@ -20,6 +23,9 @@ public class BrowserService {
     }
   }
 
+  /**
+   * @throws CatException if invalid url is passed or the browser fails to be launched
+   */
   void openUrl(String url) {
     try {
       desktop.browse(new java.net.URI(url));

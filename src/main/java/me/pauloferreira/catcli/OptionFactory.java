@@ -51,7 +51,8 @@ public class OptionFactory {
     });
 
     optionFactory.addOption("fact", () -> {
-      System.out.println("TODO");
+      CatFactsService catFactsService = new CatFactsService();
+      System.out.println(catFactsService.getFact());
     });
 
     optionFactory.addOption("ascii", () -> {
