@@ -1,4 +1,4 @@
-package me.pauloferreira.catcli;
+package me.pauloferreira.catcli.service;
 
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.MediaType;

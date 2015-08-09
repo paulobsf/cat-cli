@@ -1,4 +1,4 @@
-package me.pauloferreira.catcli;
+package me.pauloferreira.catcli.service;
 
 import com.squareup.okhttp.HttpUrl;
 import com.squareup.okhttp.OkHttpClient;
@@ -8,6 +8,8 @@ import com.squareup.okhttp.Response;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
+
+import me.pauloferreira.catcli.exception.CatException;
 
 public class CatPicService {
 

@@ -1,10 +1,11 @@
-package me.pauloferreira.catcli;
+package me.pauloferreira.catcli.client;
 
 import me.pauloferreira.catcli.model.Facts;
 import retrofit.http.GET;
 import retrofit.http.Query;
 
 public interface CatFactsClient {
+
   @GET("/api/facts")
   Facts getFacts(
       @Query("number") Integer number

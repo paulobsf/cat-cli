@@ -4,6 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import me.pauloferreira.catcli.service.BrowserService;
+import me.pauloferreira.catcli.service.CatFactsService;
+import me.pauloferreira.catcli.service.CatPicService;
+
 public class OptionFactory {
 
   private static final String DEFAULT_OPTION = "browser";

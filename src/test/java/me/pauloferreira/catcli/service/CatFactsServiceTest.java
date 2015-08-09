@@ -1,4 +1,4 @@
-package me.pauloferreira.catcli;
+package me.pauloferreira.catcli.service;
 
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
@@ -11,6 +11,8 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Collections;
 
+import me.pauloferreira.catcli.client.CatFactsClient;
+import me.pauloferreira.catcli.exception.CatException;
 import me.pauloferreira.catcli.model.Facts;
 
 
@@ -26,7 +28,7 @@ public class CatFactsServiceTest {
   @Test
   public void getFact() {
     String expectedValue = "Cats are cute.";
-    
+
     Facts facts = new Facts(true, Collections.singletonList(expectedValue));
 
     Mockito.when(catFactsClient.getFacts(1)).thenReturn(facts);

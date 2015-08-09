@@ -1,6 +1,7 @@
-package me.pauloferreira.catcli;
+package me.pauloferreira.catcli.exception;
 
 public class CatException extends RuntimeException {
+
   public CatException(String message, Throwable cause) {
     super(message, cause);
   }

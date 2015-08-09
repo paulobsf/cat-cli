@@ -3,6 +3,8 @@ package me.pauloferreira.catcli;
 import java.util.Iterator;
 import java.util.Set;
 
+import me.pauloferreira.catcli.exception.CatException;
+
 public class Main {
 
   private static void printHelp(Set<String> availableOptions) {

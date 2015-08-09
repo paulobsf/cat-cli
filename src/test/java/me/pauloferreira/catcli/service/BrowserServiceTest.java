@@ -1,4 +1,4 @@
-package me.pauloferreira.catcli;
+package me.pauloferreira.catcli.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

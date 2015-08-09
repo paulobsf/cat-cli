@@ -1,8 +1,10 @@
-package me.pauloferreira.catcli;
+package me.pauloferreira.catcli.service;
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
+
+import me.pauloferreira.catcli.exception.CatException;
 
 public class BrowserService {
 
@@ -26,7 +28,7 @@ public class BrowserService {
   /**
    * @throws CatException if invalid url is passed or the browser fails to be launched
    */
-  void openUrl(String url) {
+  public void openUrl(String url) {
     try {
       desktop.browse(new java.net.URI(url));
     } catch (IOException | URISyntaxException e) {

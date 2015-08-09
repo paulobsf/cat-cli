@@ -1,7 +1,9 @@
-package me.pauloferreira.catcli;
+package me.pauloferreira.catcli.service;
 
 import java.util.List;
 
+import me.pauloferreira.catcli.client.CatFactsClient;
+import me.pauloferreira.catcli.exception.CatException;
 import me.pauloferreira.catcli.model.Facts;
 import retrofit.RestAdapter;
 
