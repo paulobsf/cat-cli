@@ -1,12 +1,9 @@
 package me.pauloferreira.catcli.service;
 
-import org.hamcrest.CoreMatchers;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Collections;
@@ -15,6 +12,9 @@ import me.pauloferreira.catcli.client.CatFactsClient;
 import me.pauloferreira.catcli.exception.CatException;
 import me.pauloferreira.catcli.model.Facts;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CatFactsServiceTest {
@@ -31,11 +31,11 @@ public class CatFactsServiceTest {
 
     Facts facts = new Facts(true, Collections.singletonList(expectedValue));
 
-    Mockito.when(catFactsClient.getFacts(1)).thenReturn(facts);
+    when(catFactsClient.getFacts(1)).thenReturn(facts);
 
     String fact = catFactsService.getFact();
 
-    Assert.assertThat(fact, CoreMatchers.equalTo(expectedValue));
+    assertThat(fact, equalTo(expectedValue));
   }
 
   @Test(expected = CatException.class)
@@ -44,7 +44,7 @@ public class CatFactsServiceTest {
 
     Facts facts = new Facts(false, Collections.singletonList(expectedValue));
 
-    Mockito.when(catFactsClient.getFacts(1)).thenReturn(facts);
+    when(catFactsClient.getFacts(1)).thenReturn(facts);
 
     catFactsService.getFact();
   }
@@ -53,7 +53,7 @@ public class CatFactsServiceTest {
   public void getFactNoFact() {
     Facts facts = new Facts(true, Collections.emptyList());
 
-    Mockito.when(catFactsClient.getFacts(1)).thenReturn(facts);
+    when(catFactsClient.getFacts(1)).thenReturn(facts);
 
     catFactsService.getFact();
   }

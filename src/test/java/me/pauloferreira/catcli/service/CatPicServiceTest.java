@@ -86,6 +86,5 @@ public class CatPicServiceTest {
     Files.delete(FileSystems.getDefault().getPath(catPath));
 
     assertThat(catPath, equalTo(expectedValue));
-
   }
 }
