@@ -12,6 +12,18 @@ public class OptionFactory {
 
   private static final String DEFAULT_OPTION = "browser";
 
+  private static final String ASCII_MEOW
+      =   " ______\n"
+        + "( meow )\n"
+        + " ------\n"
+        + "     o\n"
+        + "      o\n"
+        + "       (\"`-'  '-/\") .___..--' ' \"`-._\n"
+        + "         ` *_ *  )    `-.   (      ) .`-.__. `)\n"
+        + "         (_Y_.) ' ._   )   `._` ;  `` -. .-'\n"
+        + "      _.. `--'_..-_/   /--' _ .' ,4\n"
+        + "   ( i l ),-''  ( l i),'  ( ( ! .-'   ";
+
   private final Map<String, Option> options;
 
   private OptionFactory() {
@@ -59,9 +71,7 @@ public class OptionFactory {
       System.out.println(catFactsService.getFact());
     });
 
-    optionFactory.addOption("ascii", () -> {
-      System.out.println("TODO");
-    });
+    optionFactory.addOption("ascii", () -> System.out.println(ASCII_MEOW));
 
     return optionFactory;
   }
